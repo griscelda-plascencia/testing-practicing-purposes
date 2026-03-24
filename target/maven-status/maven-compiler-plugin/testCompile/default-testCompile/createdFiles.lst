@@ -1,0 +1,8 @@
+org/domain/PostPayload.class
+org/tests/TestMethods/GetMethods.class
+org/core/TestRunner.class
+org/tests/CommentsTests.class
+org/tests/TestMethods/ModifyMethods.class
+org/utils/CommonMethods.class
+org/tests/PostsTests.class
+org/domain/EndPoints.class
