@@ -1,12 +1,9 @@
 package org.tests;
 
 import io.restassured.response.ValidatableResponse;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.tests.TestMethods.GetMethods;
-import org.tests.TestMethods.ModifyMethods;
-import org.utils.CommonMethods;
-
-import static org.junit.Assert.*;
+import org.domain.testMethods.GetMethods;
 
 /**
  * author: Griscelda Plascencia
@@ -48,7 +45,7 @@ public class CommentsTests extends GetMethods {
         response.assertThat().statusCode(200);
         // Assert that the response body is an empty array
         String responseBody = response.extract().asString();
-        assertTrue("Expected empty response for invalid email", responseBody.equals("[]") || responseBody.trim().equals(""));
+        Assert.assertTrue(responseBody.equals("[]") || responseBody.trim().equals(""),"Expected empty response for invalid email");
     }
 
 }

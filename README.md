@@ -13,8 +13,7 @@ src
     └── java
         └── org
             ├── core      # Test runner classes (e.g., TestRunner)
-
-            ├── domain    # POJOs, endpoint definitions, payloads
+            ├── domain    # POJOs, endpoint definitions, payloads, testMethods
             ├── tests     # Test classes grouped by endpoint/resource
             └── utils     # Common utility methods
 ```

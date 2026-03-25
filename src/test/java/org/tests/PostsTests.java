@@ -1,14 +1,13 @@
 package org.tests;
 
 import io.restassured.response.*;
-import org.tests.TestMethods.ModifyMethods;
+import org.domain.testMethods.ModifyMethods;
 import org.domain.PostPayload;
 import org.utils.CommonMethods;
 import org.testng.annotations.Test;
-import org.tests.TestMethods.GetMethods;
+import org.domain.testMethods.GetMethods;
 
 import static org.testng.Assert.*;
-import static org.utils.CommonMethods.payloadToJson;
 
 /**
  * author: Griscelda Plascencia
@@ -113,9 +112,8 @@ public class PostsTests extends GetMethods {
         String bodyToBeUpdated =  "This is the body of record to be updated";
         String resourceNumber = "2";
         PostPayload payload = new PostPayload(Integer.parseInt(resourceNumber), 888, titleToBeUpdated, bodyToBeUpdated);
-        String payloadToBeSend = payloadToJson(payload);
 
-        ValidatableResponse response = modifyMethods.updatePostsIdById(payloadToBeSend, resourceNumber);
+        ValidatableResponse response = modifyMethods.updatePostsIdById(payload, resourceNumber);
         response.assertThat().statusCode(200);
 
         String bodyUpdated = CommonMethods.parseJson(response.extract().asString(), "body");
@@ -133,9 +131,8 @@ public class PostsTests extends GetMethods {
         String bodyToBeUpdated =  "This is the body of record to be updated";
         String resourceNumber = "200000";
         PostPayload payload = new PostPayload(Integer.parseInt(resourceNumber), 888, titleToBeUpdated, bodyToBeUpdated);
-        String payloadToBeSend = payloadToJson(payload);
 
-        ValidatableResponse response = modifyMethods.updatePostsIdById(payloadToBeSend, resourceNumber);
+        ValidatableResponse response = modifyMethods.updatePostsIdById(payload, resourceNumber);
         response.assertThat().statusCode(500);
     }
 

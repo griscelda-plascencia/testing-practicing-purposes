@@ -9,7 +9,7 @@ public class EndPoints {
     /** GET all comments */
     public static final String COMMENTS = "/comments";
     /** GET, PUT, PATCH, DELETE a post by ID */
-    public static final String POST_PARAM = "/posts/%s";
+    public static final String POST_PARAM = "/posts/{id}";
     /** GET comments for a post by ID */
-    public static final String POST_PARAM_COMMENTS = "/posts/%s/comments";
+    public static final String POST_PARAM_COMMENTS = "/posts/{id}/comments";
 }

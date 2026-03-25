@@ -1,4 +1,4 @@
-package org.tests.TestMethods;
+package org.domain.testMethods;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
@@ -22,16 +22,16 @@ public class ModifyMethods {
                 .then().log().all();
     }
 
-    public ValidatableResponse updatePostsIdById(String payload, String parameterId) {
+    public ValidatableResponse updatePostsIdById(PostPayload payload, String parameterId) {
         return given().contentType("application/json")
                 .body(payload)
-                .when().put(String.format(EndPoints.POST_PARAM, parameterId))
+                .when().put(EndPoints.POST_PARAM, parameterId)
                 .then().log().all();
     }
 
     public ValidatableResponse deletePostById(String id) {
         return given().contentType("application/json")
-                .when().delete(String.format(EndPoints.POST_PARAM, id))
+                .when().delete(EndPoints.POST_PARAM, id)
                 .then().log().all();
     }
 }

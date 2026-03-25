@@ -1,4 +1,4 @@
-package org.tests.TestMethods;
+package org.domain.testMethods;
 
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
@@ -25,13 +25,14 @@ public class GetMethods {
 
     public ValidatableResponse getPostsById(String parameter) {
         return given().contentType("application/json")
-                .when().get(String.format(EndPoints.POST_PARAM, parameter))
+                .when().get(EndPoints.POST_PARAM, parameter)
+                //.when().get(String.format(EndPoints.POST_PARAM, parameter))
                 .then().log().all();
     }
 
     public ValidatableResponse getPostsByIdComments(String parameter) {
         return given().contentType("application/json")
-                .when().get(String.format(EndPoints.POST_PARAM_COMMENTS, parameter))
+                .when().get(EndPoints.POST_PARAM_COMMENTS, parameter)
                 .then().log().all();
     }
 
